@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+  <link rel="stylesheet" href="/static/styles/login.css">
+  <link rel="stylesheet" href="/static/styles/style.css">
+  <title>Image Generator</title>
+  <link rel="icon" type="image/x-icon" href="/static/assets/web_icon.png">
+</head>
+<header>
+    <h2 class="logo">𝕾𝖕𝖊𝖊𝖈𝖍 𝖙𝖔 𝕴𝖒𝖆𝖌𝖊 𝕲𝖊𝖓𝖊𝖗𝖆𝖙𝖔𝖗</h2>
+    <nav class="navigation">
+        <a href="/home" class="stylenav">Home</a>
+        <a href="/abtus" class="stylenav">About Project</a>
+    </nav>
+    <script src="/static/scripts/helpers.js"></script>
+</header>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="/auth" method="post">
+                    <h2>Verification</h2>
+                    <text class="inst">Check your email for the authentication code.</text>
+                    <center class="mb-3">
+                        <h3>
+                          <label class="form-text" id="err"></label>
+                        </h3>
+                    </center>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="text" id="auth" name="auth" required>
+                        <label for="">Enter code</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <button id="submitbtn">Verify</button>
+                    </div>
+                    <div class="register">
+                        <p>Didn't get a code? <a href="/regenauth" class="register-link">Resend Code</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        submitbtn.addEventListener("click", e => {
+            e.preventDefault();
+            submitbtn.disabled = true;
+
+            const data = {
+                auth: auth.value
+            };
+
+            fetch("/auth", {
+                method: "POST", 
+                body: JSON.stringify(data),
+                headers: {
+                    'content-type': 'application/json'
+                }
+            })
+            .then(res => res.json())
+            .finally(() => submitbtn.disabled = false)
+            .then(data => {
+                if (data !== "auth failed") {
+                    if (data === "password change") {
+                        window.location.href = "/change-pwd";
+                    } else {
+                        window.location.href = "/";
+                    }
+                    
+                    return;
+                }
+
+                setTextForTime(err, "Verification code did not match");
+            });
+        });
+    </script>
+</body>
+</html>

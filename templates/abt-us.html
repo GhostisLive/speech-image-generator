@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/static/styles/login.css">
+  <link rel="stylesheet" href="/static/styles/style.css">
+  <title>Image Generator</title>
+  <link rel="icon" type="image/x-icon" href="/static/assets/web_icon.png">
+</head>
+<header>
+    <h2 class="logo">𝕾𝖕𝖊𝖊𝖈𝖍 𝖙𝖔 𝕴𝖒𝖆𝖌𝖊 𝕲𝖊𝖓𝖊𝖗𝖆𝖙𝖔𝖗</h2>
+    <nav class="navigation">
+        <a href="/home" class="stylenav">Home</a>
+        <a href="/abtus" class="stylenav">About Project</a>
+        {% if not session.username %}
+            <a href="/login"><button class="btnLogin-popup" id="loginbtn">Login</button></a>
+        {% else %}
+          <div class="dropdown">
+            <div class="logout">
+              <ion-icon name="person"></ion-icon>
+              <label id="dropdownlabel">  Hi, {{ session.username }} </label>
+            </div>
+            <div class="dropdowncontent">
+              <a href="/logout"><button class="btnLogout-popup" id="loginbtn">Logout</button></a>
+            </div>
+          </div>
+          <script src="/static/scripts/script.js"></script>
+        {% endif %}
+    </nav>
+</header>
+<body>
+    <p class="my-4 about-us" style="white-space: pre-line; backdrop-filter: blur(20px);">
+        {{ content | safe }}
+    </p>
+</body>
+</html>

@@ -1,0 +1,47 @@
+/* Style the button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Style the icon button */
+#startSpeech {
+    background-color: transparent; /* Remove the white background */
+    border: none;
+    padding: 20px 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 25px;
+    box-shadow: none; /* Remove the box shadow */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Change icon color and scale when hovered */
+#startSpeech:hover {
+    color: #007BFF; /* Highlight the icon color */
+    transform: scale(1.1);
+}
+
+/* Style the microphone icon */
+#startSpeech i {
+    margin-right: 10px;
+    /* Apply a filter to make the icon colorless */
+    filter: grayscale(100%);
+}
+
+/* Style the output div */
+#output {
+    margin-top: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+}
+
+.icon-button {
+    position: relative;
+    top : -150px;
+    left : 1230px;
+    font-size: 10px;
+}

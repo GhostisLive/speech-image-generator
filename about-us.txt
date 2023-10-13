@@ -1,0 +1,25 @@
+%bSpeech To Image:
+Image generation is a fascinating field within artificial intelligence and computer graphics that involves the creation of visual content, often with the help of neural networks and deep learning techniques. This process typically starts with a model learning from a large dataset of existing images, understanding patterns, and then generating new images that adhere to those learned patterns.
+
+%bApplication and uses:
+Image generation has a wide range of applications, from creating art and generating realistic photographs to generating synthetic data for training machine learning models, enhancing video game graphics, and even aiding in medical image synthesis. As technology in this field continues to advance, image generation is poised to play a significant role in various industries and creative endeavors.
+
+%bHow its done:
+Image generation is achieved through deep learning techniques like GANs, where a generator network creates images from random noise while a discriminator network distinguishes real from fake. These networks are trained in an adversarial process, with the generator improving its output over time. Generated images can have applications in art, design, data augmentation, and more. Other approaches, like VAEs and transformers, also exist for image generation, each with its own strengths.
+It involves steps namely data collection,data processing,Building and Training the GAN model.
+
+%bDifference between image generation and image retrieval from web browser:
+
+%bImage generation and searching in browser Images are two fundamentally different processes related to images:
+
+%bImage Generation:
+%bCreation: Image generation involves creating new images from scratch, often using machine learning techniques. These images are generated based on patterns and data learned by a model during training. It can produce entirely original visuals that may not exist in reality.
+%bPurpose: Image generation is typically used for tasks like art creation, data augmentation for machine learning, or generating visual content based on textual descriptions or other inputs.
+%bExample: Generating photorealistic faces of non-existent people, creating artwork, or generating visuals for virtual environments.
+
+%bSearching in Google Images:
+%bRetrieval: Browser Images is a search engine that retrieves and displays existing images from the vast amount of images available on the internet. It does not create new images but rather provides access to images already present on websites.
+%bPurpose: Browser Images is primarily used for finding and accessing existing images, photos, or graphics that are relevant to a specific search query.
+%bExample: Searching for "Eiffel Tower" to find and view images of the Eiffel Tower that were previously captured and uploaded by users or organizations.
+
+%bIn summary, image generation involves the creation of new images, while searching in browser Images is about finding and accessing pre-existing images from the web. They serve different purposes and utilize distinct technologies and processes.

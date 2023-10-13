@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('/static/assets/background6.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+
+}
+
+.logo {
+    font-size: 2em;
+    color: #f8f7f7;
+    user-select: none;
+    
+}
+
+.my-4 {
+    color: #f0f0f0;
+    user-select: none;
+}
+
+.mb-3 .form-text {
+    color: #fff5f5;
+    user-select: none;
+    font-size: medium;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    display: inline-block;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height:3px;
+    background: #fff;
+    border-radius: 5px;
+    transition-duration: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+
+}
+
+.navigation .stylenav:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.btnLogout-popup {
+    position: relative;
+    top: 10px;
+    height: 50px;
+    background: #ffff;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #000000;
+    font-weight: 500;
+    transition: .5s;
+    right: 40px;
+}
+
+.btnLogout-popup:hover {
+    background: #eeee;
+    color: black;
+}
+
+.btnLogin-popup:hover {
+    background: #fff;
+    color: black;
+}
+
+.submitBtn {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    transition: .5s;
+}
+
+
+.submitBtn:hover {
+    background: #fff;
+    color: black;
+}
+
+/* Apply these rules for any disabled button currently*/
+
+button:disabled, button[disabled]{
+    background-color: #cccccc;
+    color: #000000;
+    cursor: not-allowed !important;
+}
+
+button:disabled:hover {
+    background-color: #cccccc;
+    color: #000000;
+}
+
+/* End of button disables */ 
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 45px;
+}
+
+.dropdowncontent {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    width: auto;
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+    z-index: 1;
+    transition: .5s;
+}
+
+.dropdown:hover .dropdowncontent {
+    display: block;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+   100% { opacity: 1; }
+}
+
+.dropdown:hover .dropdowncontent .btnLogout-popup {
+    animation: fadeIn forwards 1s;
+    animation-fill-mode: forwards;
+}
+
+.logout { 
+    color:#fff;
+    font-size: 1.1em;
+    text-decoration: none;
+}
+
+.logout::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height:3px;
+    background: #fff;
+    border-radius: 5px;
+    transition-duration: right;
+    transform: scaleX(0);
+    transition: .5s;
+}
+
+.logout:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.inst {
+    color:#fff;
+}
+
+.about-us {
+    position: relative;
+    text-align: left;
+    padding-top: 70px;
+    padding-left: 10px;
+}
+
+.enlarge {
+    font-size: larger;
+    text-decoration: underline;
+}

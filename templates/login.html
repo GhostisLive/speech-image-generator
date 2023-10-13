@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+  <link rel="stylesheet" href="/static/styles/login.css">
+  <link rel="stylesheet" href="/static/styles/style.css">
+  <title>Image Generator</title>
+  <link rel="icon" type="image/x-icon" href="/static/assets/web_icon.png">
+
+</head>
+<header>
+    <h2 class="logo">𝕾𝖕𝖊𝖊𝖈𝖍 𝖙𝖔 𝕴𝖒𝖆𝖌𝖊 𝕲𝖊𝖓𝖊𝖗𝖆𝖙𝖔𝖗</h2>
+    <nav class="navigation">
+        <a href="/home" class="stylenav">Home</a>
+        <a href="/abtus" class="stylenav">About Project</a>
+    </nav>
+    <script src="/static/scripts/helpers.js"></script>
+</header>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form>
+                    <h2>Login</h2>
+                    <center class="mb-3">
+                        <h2>
+                          <label class="form-text" id="err"></label>
+                        </h2>
+                    </center>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="email" id="email" required>
+                        <label for="">Email</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" id="password" required>
+                        <label for="">Password</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox" id="checkbox">Remember Me </label>
+                        <a href="/email" class="fgt-pass">Forgot Password</a>
+                    </div>
+                    <button id="submitbtn">Log in</button>
+                    <div class="register">
+                        <p>Don't have a account? <a href="/register" class="register-link">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        submitbtn.addEventListener("click", e => {
+            e.preventDefault();
+            submitbtn.disabled = true;
+
+            const data = {
+                email: email.value,
+                password: password.value,
+                checkbox: checkbox.checked
+            };
+
+            fetch("/login", { 
+                method: "POST", 
+                body: JSON.stringify(data),
+                headers: {
+                    'content-type': 'application/json'
+                }
+            })
+            .then(res => res.json())
+            .finally(() => submitbtn.disabled = false)
+            .then(data => {
+                if (data !== "login failed") {
+                    if (data === "password change") {
+                        window.location.href = "/change-pwd";
+                    } else if (data === "auth required") {
+                        window.location.href = "/auth";
+                    } else {
+                        window.location.href = "/";
+                    }
+
+                    return;
+                }
+
+                setTextForTime(err, "Wrong credentials, Login failed");
+            });
+        });
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
